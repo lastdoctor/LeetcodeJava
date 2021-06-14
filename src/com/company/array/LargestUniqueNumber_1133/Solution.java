@@ -25,7 +25,6 @@ class Solution {
 class Solution1 {
     public int largestUniqueNumber(int[] A) {
         Arrays.sort(A);
-        System.out.println(Arrays.toString(A));
 
         for(int i = A.length - 1; i >= 0; i--) {
             // if there is no duplicate return.
