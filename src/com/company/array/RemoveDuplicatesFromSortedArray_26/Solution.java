@@ -2,6 +2,7 @@ package com.company.array.RemoveDuplicatesFromSortedArray_26;
 
 import java.util.Arrays;
 
+// Time On Space O1
 public class Solution {
     public int removeDuplicates(int[] nums) {
         int unique = 0;
