@@ -2,18 +2,12 @@ package com.company.dynamic.ClimbingStairs_70;
 
 class Solution {
     public int climbStairs(int n) {
-        if (n == 1) {
-            return 1;
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
         }
-        // n = 4
-        // 1+1+1 = 3a
-        // 1+2 = 3
-        // 2+1 = 3
-        int res = 1, b = 1;
-        for (int i = 0; i < n; i++) {
-            res = b;
-            b = res + b;
-        }
-        return b;
+        return dp[n];
     }
 }
