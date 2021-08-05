@@ -18,7 +18,7 @@ class Solution {
 }
 
 
-// Not good Solution pass 1000/1010
+// Not good Solution pass 11500/11510
 // Time O(n) and Space O(N)
 class Solution1 {
     public boolean isPalindrome(int x) {
