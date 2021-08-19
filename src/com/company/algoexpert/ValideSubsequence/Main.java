@@ -5,7 +5,7 @@ class Main {
         Solution s = new Solution();
         int[] array = {5, 1, 22, 25, 6, -1, 8, 10};
         int[] sequence = {1, 6, -1, 10};
-        System.out.println(s.validWordSquare(array, sequence));
+        System.out.println(s.valideSubsequence(array, sequence));
     }
 }
 
