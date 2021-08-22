@@ -1,5 +1,6 @@
 package com.company.MaximumSubarray_53;
 
+// Kodane's algorith
 class Solution {
     public int maxSubArray(int[] nums) {
         int maxEndingHere = nums[0];
