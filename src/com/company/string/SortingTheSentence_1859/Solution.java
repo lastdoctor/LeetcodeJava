@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 class Solution {
     public String sortSentence(String s) {
-        String[] arrtemp = s.split(" ");
-        String[] ans = new String[arrtemp.length];
+        String[] ans = s.split(" ");
 
         String temp = "";
         for (int i = 0; i < s.length(); i++) {
