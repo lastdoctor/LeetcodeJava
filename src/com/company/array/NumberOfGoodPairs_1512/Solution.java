@@ -1,5 +1,8 @@
 package com.company.array.NumberOfGoodPairs_1512;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public int numIdenticalPairs(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
