@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+// Brute force
+// Time On2 Space On
 class Solution {
     public int maxProfit(int[] prices) {
         Set<Integer> set = new HashSet<>();
@@ -20,6 +22,8 @@ class Solution {
     }
 }
 
+// Brute force
+// Time On2 Space O(1)
 class Solution1 {
     public int maxProfit(int[] prices) {
         int maxprofit = 0;
@@ -35,6 +39,21 @@ class Solution1 {
     }
 }
 
+class Solution2 {
+    public int maxProfit(int[] prices) {
+        int maxprofit = 0;
+        int minprice = Integer.MAX_VALUE;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minprice) {
+                minprice = prices[i];
+            } else if (prices[i] - minprice > maxprofit) {
+                maxprofit = prices[i] - minprice;
+            }
+        }
+
+        return maxprofit;
+    }
+}
 class Main {
     public static void main(String... arsg) {
         Solution s = new Solution();
