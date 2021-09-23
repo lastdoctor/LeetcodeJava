@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 class Solution {
     public int maximumWealth(int[][] accounts) {
-//        int richest = 0;
-//        for (int i = 0; i < accounts.length; i++) {
-//            System.out.println(Arrays.toString(accounts[i]));
-//            for (int j = 0; j < accounts.length; j++) {
-//                System.out.println(Arrays.toString(new int[]{accounts[i][j]}));
-//            }
-//        }
-//        return richest;
-        return 0;
+        int max = 0;
+        for(int[] i : accounts) {
+            int curmax = 0;
+            for (int j : i) {
+                curmax += j;
+            }
+            max = Math.max(max, curmax);
+        }
+        return max;
     }
 }
