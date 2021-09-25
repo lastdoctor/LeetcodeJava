@@ -1,6 +1,9 @@
-package com.company.array.IntersectionOfThreeSortedArrays_1213;
+package com.company.Solutions.TwoPointers.IntersectionOfThreeSortedArrays_1213;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // Time O(2n) Space O(n)
 class Solution {
