@@ -2,6 +2,7 @@ package com.company.array.DecompressRunLengthEncodedList_1313;
 
 import java.util.Arrays;
 
+// Time O(2n) Space O(n)
 class Solution {
     public int[] decompressRLElist(int[] nums) {
         int n = 0;
