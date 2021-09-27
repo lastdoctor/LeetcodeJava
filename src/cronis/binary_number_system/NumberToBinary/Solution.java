@@ -3,12 +3,13 @@ package cronis.binary_number_system.NumberToBinary;
 class Solution {
     public String doubleToBinary(double num) throws Exception {
         StringBuilder binary = new StringBuilder();
+        binary.append("0.");
 
         if (num < 0 || num > 1)
             throw new Exception("Your variable must be less than 0 and more than 1");
 
     while (num > 0) {
-            if (binary.length() >= 31)
+            if (binary.length() > 23)
                 throw new Exception("Your variable is bigger than 32 bits");
 
             // Multiply by 2 in num to check it 1 or 0
