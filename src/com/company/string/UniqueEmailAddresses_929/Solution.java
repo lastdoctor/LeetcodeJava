@@ -2,6 +2,9 @@ package com.company.string.UniqueEmailAddresses_929;
 
 import java.util.*;
 
+// Space complexity O(n^3)
+// Time complexity O(n^3)
+// Method Brute force
 class Solution {
     public int numUniqueEmails(String[] emails) {
         Set<String> set = new HashSet<>();
@@ -30,5 +33,27 @@ class Solution {
         }
 
         return set.size();
+    }
+}
+
+// Space O(n^3)
+// Time O(n^3)
+class Solution1 {
+    public int numUniqueEmails(String[] emails) {
+        // hash set to store all the unique emails
+        Set<String> uniqueEmails = new HashSet<>();
+
+        for (String email : emails) {
+            // split into two parts local and domain
+            String[] parts = email.split("@");
+
+            // split local by '+'
+            String[] local = parts[0].split("\\+");
+
+            // remove all '.', and concatenate '@' and append domain
+            uniqueEmails.add(local[0].replace(".", "") + "@" + parts[1]);
+        }
+
+        return uniqueEmails.size();
     }
 }
