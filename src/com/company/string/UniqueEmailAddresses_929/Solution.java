@@ -7,23 +7,28 @@ class Solution {
         Set<String> set = new HashSet<>();
 
         for (String email : emails) {
-            StringBuilder temp = new StringBuilder();
+            StringBuilder cleanMail = new StringBuilder();
             for (int i = 0; i < email.length(); i++) {
                 char c = email.charAt(i);
 
-                if (c == '.') {
-                    continue;
-                } else if (c == '+') {
-                    while (email.charAt(i) != '@') i++;
-                }
+                if (c == '+' || c == '@') break;
 
-                temp.append(email.substring(i + 1));
+                if (c != '.') cleanMail.append(c);
             }
-            set.add(temp.toString());
+
+            StringBuilder domainName = new StringBuilder();
+            for (int i = email.length() - 1; i >= 0; i--) {
+                char c = email.charAt(i);
+                domainName.append(c);
+                if (c == '@') break;
+            }
+
+            domainName.reverse();
+            cleanMail.append(domainName);
+            set.add(cleanMail.toString());
 
         }
 
         return set.size();
     }
 }
-
