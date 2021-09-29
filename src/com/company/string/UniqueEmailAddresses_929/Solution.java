@@ -2,8 +2,8 @@ package com.company.string.UniqueEmailAddresses_929;
 
 import java.util.*;
 
-// Space complexity O(n^3)
-// Time complexity O(n^3)
+// Space complexity O(n^2)
+// Time complexity O(n^2)
 // Method Brute force
 class Solution {
     public int numUniqueEmails(String[] emails) {
@@ -36,8 +36,8 @@ class Solution {
     }
 }
 
-// Space O(n^3)
-// Time O(n^3)
+// Space O(n^2)
+// Time O(n^2)
 class Solution1 {
     public int numUniqueEmails(String[] emails) {
         // hash set to store all the unique emails
