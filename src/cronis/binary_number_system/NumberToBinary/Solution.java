@@ -9,17 +9,17 @@ class Solution {
             throw new Exception("Your variable must be less than 0 and more than 1");
 
     while (num > 0) {
-            if (binary.length() > 23)
+            if (binary.length() > 25)
                 throw new Exception("Your variable is bigger than 32 bits");
 
             // Multiply by 2 in num to check it 1 or 0
-            double r = num * 2;
-            if (r >= 1) {
+            double answerCandidate = num * 2;
+            if (answerCandidate >= 1) {
                 binary.append(1);
-                num = r - 1;
+                num = answerCandidate - 1;
             } else {
                 binary.append(0);
-                num = r;
+                num = answerCandidate;
             }
         }
         System.out.println(binary.toString());
