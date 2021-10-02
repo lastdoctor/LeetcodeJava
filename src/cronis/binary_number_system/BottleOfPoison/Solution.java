@@ -1,5 +1,6 @@
 package cronis.binary_number_system.BottleOfPoison;
 
+// https://drive.google.com/drive/u/0/folders/1g3gVA4yQMFampnXCNXB30H7h5ll9V13y
 public class Solution {
     public void findBottleOfPoison(){
         // Дано
