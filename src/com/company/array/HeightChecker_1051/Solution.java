@@ -14,3 +14,24 @@ class Solution {
         return ans;
     }
 }
+
+class Solution1 {
+    public int heightChecker(int[] heights) {
+        int[] s = new int[101];
+        int res = 0, j = 0;
+
+        for (int height : heights) {
+            s[height]++;
+        }
+
+        for (int i = 1; i < 101; i++) {
+            while (s[i] > 0) {
+                if(heights[j] != i) res++;
+                j++;
+                s[i]--;
+            }
+        }
+
+        return res;
+    }
+}
