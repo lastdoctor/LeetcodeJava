@@ -2,6 +2,7 @@ package com.company.array.FindCommonCharacters_1002;
 
 import java.util.*;
 
+// Space O(n^2) Time O(n^2)
 class Solution {
     public List<String> commonChars(String[] words) {
         Map<Character, Integer> map = new HashMap<>();
