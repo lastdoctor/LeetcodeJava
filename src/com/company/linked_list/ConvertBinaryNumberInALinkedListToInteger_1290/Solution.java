@@ -1,4 +1,4 @@
-package com.company.link_list.ConvertBinaryNumberInALinkedListToInteger_1290;
+package com.company.linked_list.ConvertBinaryNumberInALinkedListToInteger_1290;
 
 
 // Definition for singly-linked list.

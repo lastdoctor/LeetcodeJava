@@ -1,4 +1,4 @@
-package com.company.link_list.DeleteNNodesAfterMNodesOfALinkedList_1474;
+package com.company.linked_list.DeleteNNodesAfterMNodesOfALinkedList_1474;
 
 
 //  Definition for singly-linked list.

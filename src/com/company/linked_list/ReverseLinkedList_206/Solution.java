@@ -1,4 +1,4 @@
-package com.company.link_list.ReverseLinkedList_206;
+package com.company.linked_list.ReverseLinkedList_206;
 
 
 //  Definition for singly-linked list.
