@@ -30,3 +30,18 @@ class Solution1 {
         return ans;
     }
 }
+
+// Counting Bits
+class Solution2 {
+    public int numberOfSteps(int num) {
+        String binaryString = Integer.toBinaryString(num);
+
+        int ans = 0;
+        for (char bit : binaryString.toCharArray()) {
+            if (bit == '1') ans += 2;
+            else ans++;
+        }
+
+        return ans -1;
+    }
+}
