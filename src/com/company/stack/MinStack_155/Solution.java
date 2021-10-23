@@ -1,4 +1,4 @@
-package com.company.MinStack_155;
+package com.company.stack.MinStack_155;
 
 import java.util.*;
 
