@@ -1,25 +1,12 @@
 package cronis.stack.Task3;
 
-import com.company.stack.MinStack_155.MinStack1;
-
-import java.util.Arrays;
+import java.util.*;
 
 abstract class Stack {
     private int size = 0;
     private int top = -1;
     private final int arrSize = 10;
     private int[] stack = new int[arrSize];
-
-    private class Node {
-        int value;
-        Stack.Node next;
-
-        private Node(int val, int min, Stack.Node next) {
-            this.value = val;
-            this.next = next;
-        }
-    }
-
 
     void push(int value) throws Exception {
         if (size == arrSize) throw new Exception("Stack is overflow");
@@ -57,22 +44,32 @@ abstract class Stack {
 }
 
 class Stack1 extends Stack {
-
+    int[] stack;
+    public Stack1(int[] stack) {
+        this.stack = stack;
+    }
 }
 
 class Stack2 extends Stack {
-
+    int[] stack;
+    public Stack2(int[] stack) {
+        this.stack = stack;
+    }
 }
 
 class Stack3 extends Stack {
-
+    int[] stack;
+    public Stack3(int[] stack) {
+        this.stack = stack;
+    }
 }
 
 class Solution {
     public static void main(String... args) throws Exception {
-        Stack1 st1 = new Stack1();
-        Stack2 st2 = new Stack2();
-        Stack3 st3 =new Stack3();
+        int[] stack = new int[10];
+        Stack1 st1 = new Stack1(stack);
+        Stack2 st2 = new Stack2(stack);
+        Stack3 st3 =new Stack3(stack);
 
         st1.push(1);
         st2.push(2);
