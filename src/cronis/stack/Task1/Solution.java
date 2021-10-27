@@ -1,61 +1,68 @@
 package cronis.stack.Task1;
 
-
 import java.util.Arrays;
 
 class Stack {
-    private int STACK_TOP = -1;
-    private int stackSize = 0;
-    private int STACK_SIZE = 5;
-    private int[] STACK = new int[this.STACK_SIZE];
-
-
+    private int top = -1;
+    private int size = 0;
+    private int arrSize = 10;
+    private int[] STACK = new int[arrSize];
 
 
     void push(int value) throws Exception {
-        if (this.STACK_TOP == this.STACK_SIZE - 1)
-            throw new Exception("Stack overflow");
-        this.STACK_TOP += 1;
-        STACK[this.STACK_TOP] = value;
-        this.stackSize++;
+        if (top == arrSize - 1) throw new Exception("Stack overflow");
+        top++;
+        STACK[top] = value;
+        size++;
     }
 
     int pop() throws Exception {
-        if (this.STACK_TOP == -1)
-            throw new Exception("Stack is empty");
-        int value = this.STACK[this.STACK_TOP];
-        this.STACK_TOP--;
-        this.stackSize--;
+        if (isEmpty()) throw new Exception("Stack is empty");
+        int value = STACK[top];
+        size--;
+        top--;
         return value;
     }
 
     int peek() throws Exception {
-        if (this.STACK_TOP == -1)
-            throw new Exception("Stack is empty");
-        return this.STACK[this.STACK_TOP];
+        if (isEmpty()) throw new Exception("Stack is empty");
+        return STACK[top];
     }
 
     boolean isEmpty() {
-        return this.STACK_TOP == -1;
+        return top == -1;
     }
 
     int size() {
-        return this.stackSize;
+        return size;
     }
 
     @Override
     public String toString() {
         return "Stack{" +
-                "STACK_TOP=" + STACK_TOP +
-                ", STACK_SIZE=" + STACK_SIZE +
+                "top=" + top +
+                ", size=" + size +
+                ", arrSize=" + arrSize +
                 ", STACK=" + Arrays.toString(STACK) +
-                ", stackSize=" + stackSize +
                 '}';
     }
 }
 
 class Solution {
     public static void main(String... args) throws Exception {
+        Stack unsorted = new Stack();
+        Stack sorted = new Stack();
+        unsorted.push(7);
+        unsorted.push(9);
+        unsorted.push(5);
+
+        sorted.push(3);
+        sorted.push(6);
+        sorted.push(8);
+
+        Solution s = new Solution();
+        s.sort(unsorted, sorted);
+
         Stack st1 = new Stack();
         Stack st2 = new Stack();
         st1.push(1);
@@ -63,20 +70,19 @@ class Solution {
         st1.push(0);
         st1.push(-60);
         st1.push(20);
+        s.sort(st1, st2);
+    }
 
-        System.out.println("Unsorted stack :" + st1);
-        System.out.println(st2);
-
-        while (st1.isEmpty()) {
-            int st1peak = st1.pop();
-
-            while (!st2.isEmpty() && st2.peek() > st1peak) {
-                st1.push(st1.pop());
+    private void sort (Stack unsorted, Stack sorted) throws Exception {
+        while (!unsorted.isEmpty()) {
+            int temp = 0;
+            if (!sorted.isEmpty()) temp = unsorted.pop();
+            while (!sorted.isEmpty() && sorted.peek() > temp) {
+                unsorted.push(sorted.pop());
             }
-            st2.push(st1peak);
+            sorted.push(temp);
         }
 
-        System.out.println("Sorted stack :" + st1);
-        System.out.println(st2);
+        System.out.println(sorted);
     }
 }
