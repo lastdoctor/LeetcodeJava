@@ -1,84 +1,52 @@
 package cronis.stack.Task2;
 
-import java.util.Arrays;
 
-class Stack {
-    private int stackSize = 0;
-    private int stackTop = -1;
-    private int arrSize = 5;
-    private int[] stack = new int[arrSize];
+import java.util.*;
 
-    void push(int value) {
-        if (stackSize == arrSize) {
-            new Stack1().push(value);
-        } else {
-            stack[stackSize] = value;
-            stackSize++;
-            stackTop++;
-            System.out.println(stackTop);
+class Stack1 {
+    private final Stack<Stack<Integer>> stackList = new Stack<>();
+    private final int SINGLE_STACK_SIZE = 3;
+
+    private Stack<Integer> getLastStack() {
+        return stackList.peek();
+    }
+
+    private boolean lastStackIsFull() {
+        if (stackList.isEmpty()) return false;
+        return getLastStack().size() == SINGLE_STACK_SIZE;
+    }
+
+    private void deleteLastStack() {
+        stackList.pop();
+    }
+
+    public void push(int value) {
+        if (stackList.isEmpty() || lastStackIsFull()) stackList.push(new Stack<>());
+        getLastStack().push(value);
+    }
+
+    public int pop() throws Exception {
+        if (stackList.isEmpty()) throw new Exception("Stack is empty");
+        Stack<Integer> lastStack = getLastStack();
+        if (lastStack.isEmpty()) {
+            deleteLastStack();
+            return getLastStack().pop();
         }
-    }
-
-    int pop() {
-        if (stackSize == arrSize) {
-            return new Stack1().pop();
-        } else {
-            int value = stack[stackTop];
-            stackSize--;
-            stackTop--;
-            return value;
-        }
-    }
-
-    int peek() {
-        if (stackSize == arrSize) return new Stack1().peak();
-        else return stack[stackTop];
-    }
-
-    int size() {
-        if (stackSize == arrSize) return stackSize;
-        else return stackSize + new Stack().size();
+        return lastStack.pop();
     }
 
     @Override
     public String toString() {
-        return "Stack{" +
-                "stackSize=" + stackSize +
-                ", stackTop=" + stackTop +
-                ", arrSize=" + arrSize +
-                ", stack=" + Arrays.toString(stack) +
+        return "Stack1{" +
+                "stackList=" + stackList +
+                ", SINGLE_STACK_SIZE=" + SINGLE_STACK_SIZE +
                 '}';
-    }
-}
-
-class Stack1 {
-    private int stackSize = 0;
-    private int stackTop = -1;
-    private int arrSize = 5;
-    private int[] stack = new int[arrSize];
-
-    void push(int value) {
-        stack[stackSize] = value;
-        stackSize++;
-        stackTop++;
-        System.out.println(stackTop);
-    }
-
-    int peak() {
-        return stack[stackTop];
-    }
-
-    int pop() {
-        int value = stack[stackTop];
-        stackSize--;
-        stackTop--;
-        return value;
     }
 }
 
 class Solution {
     public static void main(String... args) {
-        Stack st = new Stack();
+        Stack1 st = new Stack1();
         st.push(1);
         st.push(2);
         st.push(3);
@@ -86,6 +54,14 @@ class Solution {
         st.push(5);
         st.push(6);
         st.push(7);
-//        System.out.println(st.peek());
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+        st.push(5);
+        st.push(6);
+        st.push(7);
+        System.out.println(st);
     }
 }
+
