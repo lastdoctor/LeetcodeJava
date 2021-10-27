@@ -1,80 +1,68 @@
 package cronis.stack.Task3;
 
-import java.util.*;
+import java.util.Arrays;
 
-abstract class Stack {
-    private int size = 0;
-    private int top = -1;
-    private final int arrSize = 10;
-    private int[] stack = new int[arrSize];
+class Stack {
+    private int STACK_SIZE = 2;
+    private int STACKS_COUNT = 3;
+    private int[] STACKS = new int[STACK_SIZE * STACKS_COUNT];
+    private int[] STACK_SIZES = new int[STACKS_COUNT];
 
-    void push(int value) throws Exception {
-        if (size == arrSize) throw new Exception("Stack is overflow");
-        stack[size] = value;
-        size++;
-        top++;
+    private boolean isOutOfRange(int stackIndex) {
+        return stackIndex < 0 || stackIndex > STACKS_COUNT - 1;
     }
 
-    int pop() throws Exception {
-        if (top == -1) throw new Exception("Stack is empty");
-        int value = stack[size];
-        size--;
-        top--;
-        return value;
+    public boolean isEmptyDefStack(int stackIndex) {
+        return STACK_SIZES[stackIndex] == 0;
     }
 
-    int peak() throws Exception {
-        if (top == -1) throw new Exception("Stack is empty");
-        return stack[size];
+    public int getStackTop(int stackIndex) {
+        int stackStart = stackIndex * STACK_SIZE;
+        return stackStart + STACK_SIZES[stackIndex] - 1;
     }
 
-    boolean isEmpty() {
-        return top == -1;
+    public void push(int stackIndex, int value) throws Exception {
+        if (isOutOfRange(stackIndex)) throw new Exception("Stack index out of range");
+        int stackTop = getStackTop(stackIndex);
+        if (STACK_SIZES[stackIndex] == STACK_SIZE) throw new Exception("Stack overflow");
+        STACKS[stackTop + 1] = value;
+        STACK_SIZES[stackIndex] += 1;
+    }
+
+    public int pop(int stackIndex) throws Exception {
+        if (isOutOfRange(stackIndex)) throw new Exception("Stack index out of range");
+        if (isEmptyDefStack(stackIndex)) throw new Exception("Stack " + stackIndex + " is empty");
+        int stackTop = getStackTop(stackIndex);
+        STACK_SIZES[stackIndex] -= 1;
+        return STACKS[stackTop];
+
+    }
+
+    public int peek(int stackIndex) throws Exception {
+        if (isOutOfRange(stackIndex)) throw new Exception("Stack index out of range");
+        if (isEmptyDefStack(stackIndex)) throw new Exception("Stack " + stackIndex + " is empty");
+        int stackTop = getStackTop(stackIndex);
+        return STACKS[stackTop];
     }
 
     @Override
     public String toString() {
         return "Stack{" +
-                "size=" + size +
-                ", top=" + top +
-                ", arrSize=" + arrSize +
-                ", stack=" + Arrays.toString(stack) +
+                "STACK_SIZE=" + STACK_SIZE +
+                ", STACKS_COUNT=" + STACKS_COUNT +
+                ", STACKS=" + Arrays.toString(STACKS) +
+                ", STACK_SIZES=" + Arrays.toString(STACK_SIZES) +
                 '}';
-    }
-}
-
-class Stack1 extends Stack {
-    int[] stack;
-    public Stack1(int[] stack) {
-        this.stack = stack;
-    }
-}
-
-class Stack2 extends Stack {
-    int[] stack;
-    public Stack2(int[] stack) {
-        this.stack = stack;
-    }
-}
-
-class Stack3 extends Stack {
-    int[] stack;
-    public Stack3(int[] stack) {
-        this.stack = stack;
     }
 }
 
 class Solution {
     public static void main(String... args) throws Exception {
-        int[] stack = new int[10];
-        Stack1 st1 = new Stack1(stack);
-        Stack2 st2 = new Stack2(stack);
-        Stack3 st3 =new Stack3(stack);
-
-        st1.push(1);
-        st2.push(2);
-        st3.push(3);
-
-        System.out.println(st1);
+        Stack st = new Stack();
+        st.push(0, 2);
+        st.push(0, 3);
+        st.push(1, 2);
+        st.push(2, 2);
+        System.out.println(st);
     }
 }
