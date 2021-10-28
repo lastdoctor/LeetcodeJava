@@ -1,4 +1,4 @@
-package com.company.Solutions.ascii.DecryptStringFromAlphabetToIntegerMapping_1309;
+package com.company.ascii.DecryptStringFromAlphabetToIntegerMapping_1309;
 
 class Solution {
     public String freqAlphabets(String s) {

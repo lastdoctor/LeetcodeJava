@@ -1,4 +1,4 @@
-package com.company.Solutions.TwoPointers.IntersectionOfThreeSortedArrays_1213;
+package com.company.two_pointers.IntersectionOfThreeSortedArrays_1213;
 
 import java.util.ArrayList;
 import java.util.HashMap;

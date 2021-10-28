@@ -1,4 +1,4 @@
-package com.company.Solutions.Stack.MaximumNestingDepthOfTheParentheses_1614;
+package com.company.stack.MaximumNestingDepthOfTheParentheses_1614;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

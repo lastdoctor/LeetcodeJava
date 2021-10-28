@@ -1,4 +1,4 @@
-package com.company.Solutions.BinarySearch.ArrangingCoins_441;
+package com.company.binary_search.ArrangingCoins_441;
 
 // Time complexity O(log n)
 // Space complexity 0(1)

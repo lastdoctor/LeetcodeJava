@@ -1,4 +1,4 @@
-package com.company.Solutions.Stack.RemoveOutermostParentheses_1021;
+package com.company.stack.RemoveOutermostParentheses_1021;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

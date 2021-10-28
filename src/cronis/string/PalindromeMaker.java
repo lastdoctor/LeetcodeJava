@@ -3,7 +3,7 @@ package cronis.string;
 public class PalindromeMaker {
     public static void main(String... args) {
         PalindromeMaker p = new PalindromeMaker();
-        boolean temp = p.palindromeMaker("bbobbo");
+        boolean temp = p.palindromeMaker("bbo");
         System.out.println(temp);
     }
 
@@ -12,10 +12,13 @@ public class PalindromeMaker {
         for (char c : s.toCharArray()) {
             words[c - 'a']++;
         }
+
+        int oneCount = 0;
         for (int num : words) {
-            if (num == 0) continue;
-            else if (num == 1) continue;
+            if (num == 1) oneCount++;
             else if (num % 2 == 1) return false;
+
+            if (oneCount > 1) return false;
         }
         return true;
     }

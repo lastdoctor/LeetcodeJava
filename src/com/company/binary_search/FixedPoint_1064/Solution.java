@@ -1,4 +1,4 @@
-package com.company.Solutions.BinarySearch.FixedPoint_1064;
+package com.company.binary_search.FixedPoint_1064;
 
 // Time  O(n) Space O(1)
 class Solution {

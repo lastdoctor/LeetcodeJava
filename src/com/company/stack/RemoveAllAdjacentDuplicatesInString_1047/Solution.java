@@ -1,4 +1,4 @@
-package com.company.Solutions.Stack.RemoveAllAdjacentDuplicatesInString_1047;
+package com.company.stack.RemoveAllAdjacentDuplicatesInString_1047;
 
 import java.util.Stack;
 
