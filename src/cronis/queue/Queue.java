@@ -1,4 +1,4 @@
-package cronis.stack;
+package cronis.queue;
 
 class Node {
     int value;
