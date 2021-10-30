@@ -3,22 +3,25 @@ package cronis.string;
 public class Compressing {
     public static void main(String... args) {
         Compressing c = new Compressing();
-        String s = c.compressing("aabcccccaaa");
+        String s = c.compress("aabcccccaaa");
         System.out.println(s);
     }
 
-    private String compressing(String s) {
-        int[] letters = new int[26];
+    private String compress(String s) {
         StringBuilder ans = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            letters[c - 'a']++;
+        int sameLetterCount = 0;
+        for (int i = 0; i < s.length(); i++) {
+            sameLetterCount++;
+            char currentLetter = s.charAt(i);
+            boolean isLastLetter = (i == s.length() - 1);
+
+            if (isLastLetter || currentLetter != s.charAt(i + 1)) {
+                ans.append(currentLetter);
+                ans.append(sameLetterCount);
+                sameLetterCount = 0;
+            }
         }
 
-        for (char c : s.toCharArray()) {
-            int count = letters[c - 'a'];
-            ans.append(c);
-            ans.append(count);
-        }
-        return ans.toString();
+        return ans.length() < s.length() ? ans.toString() : s;
     }
 }
