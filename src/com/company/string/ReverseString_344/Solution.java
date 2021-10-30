@@ -11,3 +11,17 @@ class Solution {
         }
     }
 }
+
+class Solution1 {
+    public void reverseString(char[] s) {
+        reverse(s, 0);
+    }
+
+    private void reverse(char[] arr, int start) {
+        if (start < arr.length) {
+            char temp = arr[start];
+            reverse(arr, start+1);
+            arr[arr.length - 1 - start] = temp;
+        }
+    }
+}
