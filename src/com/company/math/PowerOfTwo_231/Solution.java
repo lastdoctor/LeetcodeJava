@@ -6,7 +6,6 @@ class Solution {
         while (i < n) {
             i *= 2;
         }
-
         return i == n;
     }
 }
