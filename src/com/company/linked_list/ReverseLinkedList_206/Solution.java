@@ -19,18 +19,18 @@ class ListNode {
     }
 }
 
-// Space O(1) Time O(n);
+// Space O(n) Time O(n);
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-
+        if (head == null) return null;
+        ListNode reversed = null;
         while (head != null) {
-            ListNode next_node = head.next;
-            head.next = prev;
-            prev = head;
-            head = next_node;
+            ListNode headNext = head.next;
+            head.next = reversed;
+            reversed = head;
+            head = headNext;
         }
 
-        return prev;
+        return reversed;
     }
 }
