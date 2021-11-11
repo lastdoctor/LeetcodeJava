@@ -1,6 +1,6 @@
 package com.company.linked_list.PalindromeLinkedList_234;
 
-import java.util.Stack;
+import java.util.*;
 
 
 class ListNode {
@@ -32,6 +32,23 @@ class Solution {
         while (head != null) {
             ListNode popped = reverse.pop();
             if (popped.val != head.val) return false;
+            head = head.next;
+        }
+        return true;
+    }
+}
+
+class Solution1 {
+    public boolean isPalindrome(ListNode head) {
+        var stack = new ArrayList<ListNode>();
+        ListNode c = head;
+        while (c != null) {
+            stack.add(c);
+            c = c.next;
+        }
+        while (head != null) {
+            ListNode pop = stack.remove(stack.size() - 1);
+            if (pop.val != head.val) return false;
             head = head.next;
         }
         return true;
