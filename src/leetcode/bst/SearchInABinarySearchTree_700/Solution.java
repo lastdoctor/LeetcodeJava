@@ -27,3 +27,14 @@ class Solution {
         return (val < root.val) ? searchBST(root.left, val) : searchBST(root.right, val);
     }
 }
+
+class Solution1 {
+    public TreeNode searchBST(TreeNode root, int val) {
+        while (root != null) {
+            if (root.val == val) return root;
+            else if (root.val > val) root = root.left;
+            else root = root.right;
+        }
+        return null;
+    }
+}
