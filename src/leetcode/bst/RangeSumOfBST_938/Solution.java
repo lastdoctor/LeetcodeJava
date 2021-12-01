@@ -1,5 +1,6 @@
 package leetcode.bst.RangeSumOfBST_938;
 
+import java.util.*;
 
 class TreeNode {
     int val;
@@ -28,5 +29,27 @@ class Solution {
         } else {
             return rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
         }
+    }
+}
+
+class Solution1 {
+    public int rangeSumBST(TreeNode root, int low, int high) {
+        Stack<TreeNode> s = new Stack<>();
+        s.push(root);
+
+        int sum = 0;
+        while (!s.empty()) {
+            var curr = s.pop();
+
+            if (curr != null) {
+                if (curr.val <= high && curr.val >= low) {
+                    sum += curr.val;
+                }
+            }
+            if (curr.right != null) s.push(curr.right);
+            if (curr.left != null) s.push(curr.left);
+        }
+
+        return sum;
     }
 }
