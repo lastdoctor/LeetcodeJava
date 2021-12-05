@@ -42,3 +42,20 @@ class Solution {
         inOrder(root.right);
     }
 }
+
+class Solution1 {
+    private TreeNode curr = null;
+    public TreeNode increasingBST(TreeNode root) {
+        var dummy = new TreeNode(-1);
+        curr = dummy;
+        inOrder(root);
+        return dummy.right;
+    }
+    private void inOrder(TreeNode node) {
+        if (node == null) return;
+        inOrder(node.left);
+        curr.right = new TreeNode(node.val);
+        curr = curr.right;
+        inOrder(node.right);
+    }
+}
