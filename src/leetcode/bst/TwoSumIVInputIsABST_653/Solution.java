@@ -35,3 +35,23 @@ class Solution {
         return inOrder(root.left, target) || inOrder(root.right, target);
     }
 }
+
+class Solution1 {
+    public boolean findTarget(TreeNode root, int k) {
+        var set = new HashSet<Integer>();
+        var q = new LinkedList<TreeNode>();
+        q.add(root);
+
+        while(!q.isEmpty()) {
+            var node = q.poll();
+            if (node == null) continue;
+            if (set.contains(k - node.val)) return true;
+            set.add(node.val);
+
+            q.add(node.left);
+            q.add(node.right);
+        }
+
+        return false;
+    }
+}
