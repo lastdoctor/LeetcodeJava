@@ -38,3 +38,18 @@ class Solution {
         find(root.right, target);
     }
 }
+
+class Solution1 {
+    public int closestValue(TreeNode root, double target) {
+        int prev = root.val;
+
+        while(root != null) {
+            if (Math.abs(target - root.val) < Math.abs(target-prev)) {
+                prev = root.val;
+            }
+            if (target > root.val) root = root.right;
+            else root = root.left;
+        }
+        return prev;
+    }
+}
