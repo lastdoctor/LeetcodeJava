@@ -65,3 +65,32 @@ class Solution1 {
         return list;
     }
 }
+
+class Solution2 {
+    public List<Integer> getLonelyNodes(TreeNode root) {
+        var st = new Stack<TreeNode>();
+        var list = new ArrayList<Integer>();
+
+        st.add(root);
+        while (!st.isEmpty()) {
+            var node = st.pop();
+            if (node == null) continue;
+
+            if (node.left != null) {
+                st.add(node.left);
+                if (node.right == null) {
+                    list.add(node.left.val);
+                }
+            }
+
+            if (node.right != null) {
+                st.add(node.right);
+                if (node.left == null) {
+                    list.add(node.right.val);
+                }
+            }
+        }
+
+        return list;
+    }
+}
