@@ -36,3 +36,32 @@ class Solution {
         inorder(root.right, root.left == null);
     }
 }
+
+class Solution1 {
+    public List<Integer> getLonelyNodes(TreeNode root) {
+        var st = new LinkedList<TreeNode>();
+        var list = new ArrayList<Integer>();
+
+        st.push(root);
+        while (!st.isEmpty()) {
+            var node = st.poll();
+            if (node == null) continue;
+
+            if (node.left != null) {
+                st.push(node.left);
+                if (node.right == null) {
+                    list.add(node.left.val);
+                }
+            }
+
+            if (node.right != null) {
+                st.push(node.right);
+                if (node.left == null) {
+                    list.add(node.right.val);
+                }
+            }
+        }
+
+        return list;
+    }
+}
