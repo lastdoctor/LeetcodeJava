@@ -1,4 +1,4 @@
-package leetcode.bst.FindAllTheLonelyNodes_1469;
+package leetcode.tree.FindAllTheLonelyNodes_1469;
 
 import java.util.*;
 
