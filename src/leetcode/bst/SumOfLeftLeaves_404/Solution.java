@@ -1,6 +1,8 @@
 package leetcode.bst.SumOfLeftLeaves_404;
 
 
+import java.util.Stack;
+
 class TreeNode {
     int val;
     TreeNode left;
@@ -36,5 +38,25 @@ class Solution {
                 && root.left.right == null
         ) ans += root.left.val;
         inorder(root.right);
+    }
+}
+
+class Solution1 {
+    public int sumOfLeftLeaves(TreeNode root) {
+        var st = new Stack<TreeNode>();
+        st.add(root);
+        var ans = 0;
+        while(!st.isEmpty()) {
+            var node = st.pop();
+            if (node == null) continue;
+            if (node.left != null
+                    && node.left.left == null
+                    && node.left.right == null
+            ) ans += node.left.val;
+            st.add(node.left);
+            st.add(node.right);
+        }
+
+        return ans;
     }
 }
