@@ -29,3 +29,26 @@ class Solution {
         return new ArrayList<>(q);
     }
 }
+
+class Solution1 {
+    public List<String> letterCasePermutation(String s) {
+        var list = new ArrayList<String>();
+        helper(s.toCharArray(), list, 0);
+        return list;
+    }
+    void helper(char[] chs, List<String> list, int pos) {
+        if (pos == chs.length) {
+            list.add(new String(chs));
+            return;
+        }
+        if (chs[pos] >= '0' && chs[pos] <= '9') {
+            helper(chs, list, pos + 1);
+            return;
+        }
+        chs[pos] = Character.toLowerCase(chs[pos]);
+        helper(chs, list, pos + 1);
+
+        chs[pos] = Character.toUpperCase(chs[pos]);
+        helper(chs, list, pos + 1);
+    }
+}
