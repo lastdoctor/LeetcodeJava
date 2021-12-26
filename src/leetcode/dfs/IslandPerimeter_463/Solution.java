@@ -1,6 +1,7 @@
 package leetcode.dfs.IslandPerimeter_463;
 import java.util.*;
 
+// 5799 / 5833 test cases passed.
 class Solution {
     Set<String> visited = new HashSet<>();
     public int islandPerimeter(int[][] grid) {
