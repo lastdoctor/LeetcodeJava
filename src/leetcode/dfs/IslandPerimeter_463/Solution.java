@@ -1,31 +1,31 @@
 package leetcode.dfs.IslandPerimeter_463;
 import java.util.*;
 
-// 5799 / 5833 test cases passed.
 class Solution {
-    Set<String> visited = new HashSet<>();
     public int islandPerimeter(int[][] grid) {
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == 1) return dfs(grid, i, j);
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+        for (int row = 0; row < grid.length; ++row) {
+            for (int col = 0; col < grid[row].length; ++col) {
+                if (grid[row][col] == 1) return dfs(grid, visited, row, col);
             }
         }
+
         return 0;
     }
+    int dfs(int[][] grid, boolean[][] visited, int row, int col) {
+        if (row >= grid.length ||
+                col >= grid[0].length ||
+                row < 0 ||
+                col < 0 ||
+                grid[row][col] == 0) return 1;
+        if (visited[row][col] == true) return 0;
+        visited[row][col] = true;
 
-    int dfs(int[][]grid, int i, int j) {
-        if (i >= grid.length ||
-                j >= grid[0].length ||
-                i < 0 ||
-                j < 0 ||
-                grid[i][j] == 0) return 1;
-        if (visited.contains(""+i+j)) return 0;
-        visited.add(""+i+j);
-        int perim = 0;
-        perim += dfs(grid, i, j+1);
-        perim += dfs(grid, i+1, j);
-        perim += dfs(grid, i, j-1);
-        perim += dfs(grid, i-1, j);
-        return perim;
+        int ans = 0;
+        ans += dfs(grid, visited, row, col+1);
+        ans += dfs(grid, visited, row+1, col);
+        ans += dfs(grid, visited, row, col-1);
+        ans += dfs(grid, visited, row-1, col);
+        return ans;
     }
 }

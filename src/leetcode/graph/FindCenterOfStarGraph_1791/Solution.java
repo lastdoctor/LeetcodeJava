@@ -1,4 +1,4 @@
-package leetcode.graph;
+package leetcode.graph.FindCenterOfStarGraph_1791;
 
 class Solution {
     public int findCenter(int[][] edges) {
