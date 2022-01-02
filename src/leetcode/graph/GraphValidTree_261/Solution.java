@@ -1,4 +1,4 @@
-package leetcode.graph.FindCenterOfStarGraph_1791.GraphValidTree_261;
+package leetcode.graph.GraphValidTree_261;
 
 import java.util.*;
 
