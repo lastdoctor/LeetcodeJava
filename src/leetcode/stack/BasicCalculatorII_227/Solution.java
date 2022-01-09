@@ -18,7 +18,7 @@ class Solution {
             if (isNumber(c)) {
                 num = num * 10 + (c - '0');
             }
-            else if (c == '+' || c == '-' || c == '/' || c == '*') {
+            if (c == '+' || c == '-' || c == '/' || c == '*' || i == s.length() - 1) {
                 if (sign == '-') st.addLast(-num);
                 if (sign == '+') st.addLast(num);
                 if (sign == '*') {
