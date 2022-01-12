@@ -9,7 +9,7 @@ class Solution {
         }
 
         for (int i = 1; i <= n; i++) {
-            if (trusted[i] == n-1) return i;
+            if (trusted[i] == n - 1) return i;
         }
         return -1;
     }
