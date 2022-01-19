@@ -25,3 +25,22 @@ public class Solution {
         return null;
     }
 }
+
+class Solution1 {
+    public ListNode detectCycle(ListNode head) {
+        var fast = head;
+        var slow = head;
+        do {
+            if (fast == null || fast.next == null || fast.next.next == null) return null;
+            slow = slow.next;
+            fast = fast.next.next;
+        } while (slow != fast);
+
+        fast = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
+}
