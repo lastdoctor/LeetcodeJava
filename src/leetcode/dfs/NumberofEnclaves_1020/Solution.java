@@ -32,3 +32,29 @@ class Solution {
         System.out.println(s);
     }
 }
+
+class Solution1 {
+    public int numEnclaves(int[][] grid) {
+        int ans = 0;
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                if (row == 0 || col == 0 || row == grid.length - 1 || col == grid[row].length - 1) dfs(grid, row, col);
+            }
+        }
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                if (grid[row][col] == 1) ans++;
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(int[][] grid, int row, int col) {
+        if (row < 0 || col < 0 || row >= grid.length || col >= grid[row].length || grid[row][col] == 0) return;
+        grid[row][col] = 0;
+        dfs(grid, row, col + 1);
+        dfs(grid, row + 1, col);
+        dfs(grid, row, col - 1);
+        dfs(grid, row - 1, col);
+    }
+}
