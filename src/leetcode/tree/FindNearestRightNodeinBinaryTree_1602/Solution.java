@@ -21,6 +21,7 @@ class TreeNode {
     }
 }
 
+// dfs
 class Solution {
     public TreeNode findNearestRightNode(TreeNode root, TreeNode u) {
         var q = new LinkedList<TreeNode>();

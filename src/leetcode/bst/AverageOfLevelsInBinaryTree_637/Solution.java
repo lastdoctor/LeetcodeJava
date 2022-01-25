@@ -27,18 +27,14 @@ class Solution {
         var list = new ArrayList<Double>();
         var q = new LinkedList<TreeNode>();
         double sum = 0;
-        q.add(root);
+        q.addLast(root);
         while (!q.isEmpty()) {
             var levelNum = q.size();
             for (var i = 0; i < levelNum; i++) {
-                var node = q.poll();
+                var node = q.removeFirst();
                 sum += node.val;
-                if (node.left != null) {
-                    q.add(node.left);
-                }
-                if (node.right != null) {
-                    q.add(node.right);
-                }
+                if (node.left != null) q.addLast(node.left);
+                if (node.right != null) q.addLast(node.right);
             }
             list.add(sum / levelNum);
             sum = 0;
