@@ -22,3 +22,16 @@ class Solution {
         return t.charAt(0);
     }
 }
+
+class Solution1 {
+    public char findTheDifference(String s, String t) {
+        int ans = 0;
+        for (int c : s.toCharArray()) {
+            ans ^= c;
+        }
+        for (int c : t.toCharArray()) {
+            ans ^= c;
+        }
+        return (char)ans;
+    }
+}
