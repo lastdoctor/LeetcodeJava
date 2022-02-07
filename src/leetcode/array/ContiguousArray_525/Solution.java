@@ -20,3 +20,11 @@ class Solution {
         return maxLength;
     }
 }
+
+class Main {
+    public static void main(String[] args) {
+        var nums = new int[]{1, 0, 1, 0, 1, 1, 1};
+        var s = new Solution().findMaxLength(nums);
+        System.out.println(s);
+    }
+}
