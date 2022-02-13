@@ -29,3 +29,14 @@ class Solution {
         return false;
     }
 }
+
+
+class Main {
+    public static void main(String... args) {
+        var s1 = "ab";
+        var s2 = "eidbaooo";
+
+        var s = new Solution().checkInclusion(s1, s2);
+        System.out.println(s);
+    }
+}
