@@ -9,15 +9,20 @@ class Solution {
             int c = i + (int) 'A';
             map.put((char) c, i + 1);
         }
-
+        System.out.println(map);
         int ans = 0;
         int n = s.length();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(n - i - 1);
             ans += map.get(c) * Math.pow(26, i);
         }
-        ;
-
+        System.out.println(ans);
         return ans;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        var s = new Solution().titleToNumber("AA");
     }
 }
