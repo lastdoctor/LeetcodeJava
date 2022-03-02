@@ -24,17 +24,23 @@ class Solution {
 
 class Solution1 {
     public boolean isSubsequence(String s, String t) {
-        if (s.equals("")) return true;
-        int sindex = 0, tindex = 0;
-        while(sindex < s.length() && tindex < t.length()){
-            if(s.charAt(sindex) == t.charAt(tindex)){
-                sindex++;
+        if (s.length() == 0) return true;
+        if (t.length() == 0) return false;
+        if (t.length() == 0 && s.length() == 0) return true;
+
+        int sp = 0, tp = 0;
+        while (sp < s.length() && tp < t.length()) {
+            if (s.charAt(sp) == t.charAt(tp)) {
+                sp++;
             }
-            if(sindex >= s.length()){
+            if (sp >= s.length()) {
                 return true;
             }
-            tindex++;
+
+            tp++;
         }
+
+
         return false;
     }
 }
