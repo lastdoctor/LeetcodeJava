@@ -17,11 +17,18 @@ class Solution {
             char c = s.charAt(i);
             max = Math.max(max, map.get(c));
             if (max == i) {
-                ans.add(max-prev);
+                ans.add(max - prev);
                 prev = max;
             }
         }
 
         return ans;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        var s = new Solution().partitionLabels("ababcbacadefegdehijhklij");
+        System.out.println(s);
     }
 }

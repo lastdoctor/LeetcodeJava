@@ -2,35 +2,33 @@ package cronis.sliding_window;
 
 public class Main {
     public static void main(String[] args) {
-        var arr = new int[]{0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1};
+        var arr = new int[]{1, 0};
         var m = new Main().findMaxSequence(arr);
         System.out.println(m);
     }
 
     private int findMaxSequence(int[] nums) {
-        int maxSequence = 0;
+        int maxSequenceSize = 0;
         int windowStart = 0;
         int windowEnd = 0;
 
         int zeroCounter = 0;
+        int firstZeroIndex = 0;
+
         while (windowEnd < nums.length) {
-            if (zeroCounter >= 2) {
-                zeroCounter = 0;
-            }
             if (nums[windowEnd] == 0) {
                 zeroCounter++;
             }
-
-            if (zeroCounter < 2 && nums[windowEnd] == 0) {
-                int currentWindowSize = windowEnd - windowStart + 1;
-                maxSequence = Math.max(maxSequence, currentWindowSize);
-                windowStart = windowEnd + 1;
+            if (zeroCounter == 2) {
+                int sequenceSize = windowEnd - windowStart;
+                maxSequenceSize = Math.max(maxSequenceSize, sequenceSize);
+                windowStart = firstZeroIndex + 1;
+                zeroCounter = 1;
+                firstZeroIndex = windowEnd;
             }
-
             windowEnd++;
         }
 
-        return Math.max(maxSequence, windowEnd - windowStart + 1);
+        return Math.max(maxSequenceSize, windowEnd - windowEnd + 1);
     }
-
 }
