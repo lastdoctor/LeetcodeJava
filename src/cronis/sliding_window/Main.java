@@ -27,7 +27,7 @@ public class Main {
             windowEnd++;
         }
 
-        return Math.max(maxSequence, windowEnd-windowStart);
+        return Math.max(maxSequence, windowEnd - windowStart);
     }
 }
 // [0,0,0,0,1,1,0,1,0,1,1,0,1,1,1,0,0,1]; // -> 6
