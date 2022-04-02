@@ -27,7 +27,7 @@ public class Solution extends VersionControl {
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
 
-public class Solutio1 extends VersionControl {
+class Solution1 extends VersionControl {
     public int firstBadVersion(int n) {
         int start = 1;
         int end = n;
