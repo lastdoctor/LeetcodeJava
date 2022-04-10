@@ -42,6 +42,7 @@ public class Main {
 
 // input:  {2, -8, 3, -2, 4, -10}
 // output: start = 2; end = 4; sum = 5;
+
 class Solution5 {
     public static void main(String[] args) {
         var s = new Solution5().maxSumSubarray(new int[]{2, -8, 3, -2, 4, -10});
