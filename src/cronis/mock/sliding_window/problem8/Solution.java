@@ -1,4 +1,4 @@
-package cronis.sliding_window.problem8;
+package cronis.mock.sliding_window.problem8;
 
 import java.util.*;
 

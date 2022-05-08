@@ -1,4 +1,4 @@
-package cronis.sliding_window;
+package cronis.mock.sliding_window;
 
 import java.util.Arrays;
 
