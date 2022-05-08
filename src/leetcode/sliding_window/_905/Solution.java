@@ -19,3 +19,24 @@ class Solution {
         return nums;
     }
 }
+
+
+class Solution1 {
+    public int[] sortArrayByParity(int[] nums) {
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start <= end) {
+            if (nums[end] % 2 == 0) {
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+            } else {
+                end--;
+            }
+        }
+
+        return nums;
+    }
+}
