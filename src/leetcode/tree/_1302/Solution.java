@@ -42,3 +42,29 @@ class Solution {
         return sum;
     }
 }
+
+class Solution2 {
+    int maxHeight = Integer.MIN_VALUE;
+    int height = 0;
+    int sum = 0;
+
+    void inorder(TreeNode root, int height) {
+        if (root == null) return;
+        height += 1;
+        inorder(root.left, height);
+        if (root.left == null && root.right == null) {
+            if (maxHeight < height) {
+                maxHeight = height;
+                sum = root.val;
+            } else if (maxHeight == height) {
+                sum += root.val;
+            }
+        }
+        inorder(root.right, height);
+    }
+
+    public int deepestLeavesSum(TreeNode root) {
+        inorder(root, height);
+        return sum;
+    }
+}
