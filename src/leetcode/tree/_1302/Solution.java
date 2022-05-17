@@ -44,23 +44,23 @@ class Solution {
 }
 
 class Solution2 {
-    int maxHeight = Integer.MIN_VALUE;
     int height = 0;
+    int maxHeight = Integer.MIN_VALUE;
     int sum = 0;
 
-    void inorder(TreeNode root, int height) {
+    void inorder(TreeNode root, int currHeight) {
         if (root == null) return;
-        height += 1;
-        inorder(root.left, height);
+        currHeight += 1;
+        inorder(root.left, currHeight);
         if (root.left == null && root.right == null) {
-            if (maxHeight < height) {
-                maxHeight = height;
+            if (currHeight > maxHeight) {
+                maxHeight = currHeight;
                 sum = root.val;
-            } else if (maxHeight == height) {
+            } else if (maxHeight == currHeight) {
                 sum += root.val;
             }
         }
-        inorder(root.right, height);
+        inorder(root.right, currHeight);
     }
 
     public int deepestLeavesSum(TreeNode root) {
