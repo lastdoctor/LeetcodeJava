@@ -1,5 +1,6 @@
 package leetcode.tree._1379;
 
+import java.util.*;
 
 class TreeNode {
     int val;
@@ -28,5 +29,29 @@ class Solution {
 
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
         return inorder(original, cloned, target);
+    }
+}
+
+class Solution2 {
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        var originalQ = new LinkedList<TreeNode>();
+        originalQ.addFirst(original);
+
+        var clonedQ = new LinkedList<TreeNode>();
+        clonedQ.addFirst(cloned);
+
+        while (!originalQ.isEmpty()) {
+            TreeNode currNodeOriginal = originalQ.removeLast();
+            TreeNode currNodeCloned = clonedQ.removeLast();
+
+            if (currNodeOriginal == target) return currNodeCloned;
+
+            if (currNodeOriginal.left != null) originalQ.addFirst(currNodeOriginal.left);
+            if (currNodeOriginal.right != null) originalQ.addFirst(currNodeOriginal.right);
+            if (currNodeCloned.left != null) clonedQ.addFirst(currNodeCloned.left);
+            if (currNodeCloned.right != null) clonedQ.addFirst(currNodeCloned.right);
+        }
+
+        return null;
     }
 }
