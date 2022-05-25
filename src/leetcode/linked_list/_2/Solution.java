@@ -78,3 +78,36 @@ class Solution2 {
         return fake.next;
     }
 }
+
+
+class Solution3 {
+    void addNums(ListNode l1, ListNode l2, ListNode sumNode, int carry) {
+        if (l1 == null && l2 == null && carry == 0) {
+            return;
+        }
+        int sum = carry;
+        sum += (l1 != null) ? l1.val : 0;
+        sum += (l2 != null) ? l2.val : 0;
+
+        int lastDigit = sum % 10;
+        carry = sum / 10;
+        sumNode.next = new ListNode(lastDigit);
+        sumNode = sumNode.next;
+
+        if (l1 != null) {
+            l1 = l1.next;
+        }
+        if (l2 != null) {
+            l2 = l2.next;
+        }
+
+        addNums(l1, l2, sumNode, carry);
+    }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode fake = new ListNode(-1);
+        ListNode sumNode = fake;
+        addNums(l1, l2, sumNode, 0);
+        return fake.next;
+    }
+}
