@@ -36,3 +36,20 @@ class Solution1 {
         }
     }
 }
+
+class Solution2 {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int index1 = m - 1;
+        int index2 = n - 1;
+
+        for (int lastIndex = nums1.length - 1; lastIndex >= 0; lastIndex--) {
+            if (index2 < 0) break;
+
+            if (index1 >= 0 && nums1[index1] > nums2[index2]) {
+                nums1[lastIndex] = nums1[index1--];
+            } else {
+                nums1[lastIndex] = nums2[index2--];
+            }
+        }
+    }
+}
