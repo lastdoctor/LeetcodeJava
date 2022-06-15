@@ -1,4 +1,4 @@
-package leetcode.dynamic.BestTimeToBuyAndSellStock_121;
+package leetcode.dynamic_programming.BestTimeToBuyAndSellStock_121;
 
 // Time O(n) and Space 0(1);
 class Solution {

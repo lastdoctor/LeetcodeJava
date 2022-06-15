@@ -1,4 +1,4 @@
-package leetcode.dynamic.ClimbingStairs_70;
+package leetcode.dynamic_programming.ClimbingStairs_70;
 
 public class Main {
     public static void main(String ...args){
