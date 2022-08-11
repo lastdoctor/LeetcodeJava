@@ -3,25 +3,18 @@ package leetcode.backtracking._22;
 import java.util.*;
 
 class Solution {
-    void generate(List<String> gp, int openBracket, int closeBracket, int limit, String candidate) {
+    void permutation(List<String> gp, String candidate, int open, int close, int limit) {
         if (candidate.length() == limit * 2) {
             gp.add(candidate);
             return;
         }
-        if (openBracket < limit) {
-            generate(gp, openBracket + 1, closeBracket, limit, candidate + "(");
-        }
-        if (closeBracket < openBracket) {
-            generate(gp, openBracket, closeBracket + 1, limit, candidate + ")");
-        }
+        if (open < limit) permutation(gp, candidate + "(", open + 1, close, limit);
+        if (close < open) permutation(gp, candidate + ")", open, close + 1, limit);
     }
 
     public List<String> generateParenthesis(int n) {
-        int openBracket = 0;
-        int closeBracket = 0;
-        var generatedParentheses = new ArrayList<String>();
-        generate(generatedParentheses, openBracket, closeBracket, n, "");
-
-        return generatedParentheses;
+        var gp = new ArrayList<String>();
+        permutation(gp, "", 0, 0, n);
+        return gp;
     }
 }
