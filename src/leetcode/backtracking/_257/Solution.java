@@ -27,15 +27,14 @@ class Solution {
             paths.add(path + node.val);
             return;
         }
-        String candidatePath = path + node.val + "->";
+        var candidatePath = path + node.val + "->";
 
         if (node.left != null) getTreePaths(node.left, candidatePath, paths);
-
         if (node.right != null) getTreePaths(node.right, candidatePath, paths);
     }
 
     public List<String> binaryTreePaths(TreeNode root) {
-        var paths = new LinkedList<String>();
+        var paths = new ArrayList<String>();
         getTreePaths(root, "", paths);
         return paths;
     }
