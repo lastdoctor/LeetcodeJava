@@ -22,7 +22,7 @@ class Solution {
 // Time complexity O(n) and Time complexity O(n);
 class Solution2 {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> table = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> table = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (table.containsKey(complement)) {
