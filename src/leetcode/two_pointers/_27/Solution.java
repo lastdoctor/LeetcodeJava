@@ -17,3 +17,22 @@ class Solution {
         return lastIndex;
     }
 }
+
+class Solution1 {
+    public int removeElement(int[] nums, int val) {
+        int prevIndex = 0;
+        int currentIndex = 0;
+        while (currentIndex < nums.length) {
+            int candidate = nums[currentIndex];
+            if (candidate == val) {
+                currentIndex++;
+                continue;
+            }
+            nums[prevIndex] = candidate;
+            prevIndex++;
+            currentIndex++;
+        }
+
+        return prevIndex;
+    }
+}
