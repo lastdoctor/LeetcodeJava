@@ -14,3 +14,23 @@ class Solution {
         return prevIndex + 1;
     }
 }
+class Solution2 {
+    public int removeDuplicates(int[] nums) {
+        // [1,1,1,2,2,3]
+        //      p c
+        int prevIdx = 1;
+        int currIdx = 2;
+        while (currIdx < nums.length) {
+            int currCandidate = nums[currIdx];
+            if (currCandidate == nums[prevIdx - 1]) {
+                currIdx++;
+                continue;
+            }
+            prevIdx++;
+            nums[prevIdx] = currCandidate;
+            currIdx++;
+        }
+
+        return prevIdx + 1;
+    }
+}
